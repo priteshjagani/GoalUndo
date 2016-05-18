@@ -199,5 +199,29 @@ TEST(GoalUndoTest, Testaddemptyoperation)
 }
 
 
+TEST(GoalUndoTest, TestUndoOperationswithname)
+{
+	GoalUndo goal;
+	goal.addOperation("Goal-1","Triangle");
+	goal.addOperation("Triangle");
+	goal.addOperation("Circle");
+	goal.undoOperation("Triangle");
+	
+	ASSERT_EQ("Triangle Circle",goal.getOperations());
+	//ASSERT_EQ("", goal.getGoal());
+}
+
+TEST(GoalUndoTest, TestUndoOperationswithdifferentname)
+{
+	GoalUndo goal;
+	goal.addOperation("Goal-1","Triangle");
+	goal.addOperation("Triangle");
+	goal.addOperation("Circle");
+	goal.undoOperation("Square");
+	
+	ASSERT_EQ("Triangle Triangle Circle",goal.getOperations());
+	//ASSERT_EQ("", goal.getGoal());
+}
+
 
 
