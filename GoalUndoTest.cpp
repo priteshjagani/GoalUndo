@@ -188,4 +188,16 @@ TEST(GoalUndoTest, TestUndoDifferentOperations)
 	ASSERT_EQ("", goal.getGoal());
 }
 
+TEST(GoalUndoTest, Testaddemptyoperation)
+{
+	GoalUndo goal;
+	goal.addOperation("Triangle");
+	
+	
+	ASSERT_EQ("Triangle",goal.getGoal());
+	
+}
+
+
+
 
