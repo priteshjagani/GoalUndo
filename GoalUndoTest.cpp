@@ -223,5 +223,19 @@ TEST(GoalUndoTest, TestUndoOperationswithdifferentname)
 	//ASSERT_EQ("", goal.getGoal());
 }
 
+TEST(GoalUndoTest, TestUndoOperationsall)
+{
+	GoalUndo goal;
+	goal.addOperation("Goal-1","Triangle");
+	goal.addOperation("Triangle");
+	goal.addOperation("Circle");
+	goal.undoOperation("Circle");
+	goal.undoOperation("Triangle");
+	goal.undoOperation("Triangle");
+	
+	
+	ASSERT_EQ("",goal.getOperations());
+	//ASSERT_EQ("", goal.getGoal());
+}
 
 
